@@ -5,9 +5,9 @@ export default defineConfig({
   plugins: [react()],
   server: {
     // Proxy API requests to the Express backend during development.
-    // The browser calls /api/posts; Vite forwards it to localhost:3000.
+    // The browser calls /api/posts; Vite forwards it to the backend URL.
     proxy: {
-      '/api': 'http://localhost:3000',
+      '/api': process.env.VITE_BACKEND_URL || 'http://localhost:3000',
     },
   },
 })
