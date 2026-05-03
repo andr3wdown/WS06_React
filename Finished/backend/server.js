@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 require('dotenv').config();
 
 const pagesRouter = require('./routes/pages');
@@ -27,6 +28,10 @@ async function connectToDatabase() {
 }
 
 app.locals.publicDir = publicDir;
+app.use(cors({
+  origin: 'https://ws06-frontend.onrender.com',
+  credentials: true
+}));
 app.use(express.json());
 app.use(express.static(publicDir));
 
