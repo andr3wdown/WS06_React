@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: react-blog-app
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm run preview
+    publishDirectory: dist
+    envVars:
+      - key: VITE_BACKEND_URL
+        scope: build
