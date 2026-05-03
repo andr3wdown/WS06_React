@@ -16,7 +16,7 @@ function EditPostPage() {
     async function fetchPost() {
     setLoading(true)
     try {
-      const response = await fetch(`/api/posts/${id}`)
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/posts/${id}`)
 
       if (!response.ok) {
         setError(`Failed to load post (${response.status})`)
@@ -50,7 +50,7 @@ function EditPostPage() {
         content: formData.get('content'),
       }
 
-      const response = await fetch(`/api/posts/${id}`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/posts/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

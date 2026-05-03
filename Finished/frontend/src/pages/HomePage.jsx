@@ -10,7 +10,7 @@ function HomePage() {
     async function fetchPosts() {
       setLoading(true)
       try {
-        const response = await fetch('/api/posts')
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/posts`)
 
         if (!response.ok) {
           setError(`Failed to load posts (${response.status})`)

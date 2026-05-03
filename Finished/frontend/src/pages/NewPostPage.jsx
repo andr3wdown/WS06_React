@@ -20,7 +20,7 @@ function NewPostPage() {
         content: formData.get('content'),
       }
 
-      const response = await fetch('/api/posts', {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/posts`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

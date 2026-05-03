@@ -14,7 +14,7 @@ function PostPage() {
     async function fetchPost() {
       setLoading(true)
       try {
-        const response = await fetch(`/api/posts/${id}`)
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/posts/${id}`)
         if (!response.ok) {
           setError(`Failed to load post (${response.status})`)
           return
@@ -37,7 +37,7 @@ function PostPage() {
     setDeleting(true)
     async function deletePost() {
       try {
-        const response = await fetch(`/api/posts/${id}`, {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/posts/${id}`, {
           method: 'DELETE',
         })
         if (!response.ok) {
